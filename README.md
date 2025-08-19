@@ -47,109 +47,11 @@ O servidor estará disponível em http://localhost:5000.
 ## 🧩 Funcionalidades
 ## 1. Consultar Agendamentos (GET)
 
-Rota: /agenda
+## 2. Criar Agendamento (POST)
 
-Método: GET
+## 3. Atualizar Agendamento (PUT)
 
-Parâmetros:
-
-clinic_id: ID da clínica.
-
-doctor_id: ID do médico.
-
-date: Data do agendamento (formato YYYY-MM-DD).
-
-Exemplo:
-
-```bash
-curl "http://localhost:5000/agenda?clinic_id=123&doctor_id=456&date=2025-08-12"
-```
-
-2. Criar Agendamento (POST)
-
-Rota: /agenda
-
-Método: POST
-
-Parâmetros:
-
-id_clinica: ID da clínica.
-
-medico: ID do médico.
-
-paciente: ID do paciente (ou paciente_provisorio caso não tenha ID).
-
-momento: Data do agendamento (YYYY-MM-DD).
-
-horario_inicio: Hora de início do agendamento (HH:MM).
-
-horario_fim: Hora de fim do agendamento (HH:MM).
-
-procedimentos_ids: Lista de IDs de procedimentos.
-
-meio_de_pagamento: Meio de pagamento (espe, conv, cart, debi).
-
-tel_celular: Número de telefone do paciente.
-
-observacoes: Observações sobre o agendamento.
-
-Exemplo:
-
-```bash
-curl -X POST "http://localhost:5000/agenda" \
-  -H "Content-Type: application/json" \
-  -d '{
-        "id_clinica": "9",
-        "medico": "652",
-        "paciente": 13,
-        "momento": "2025-08-12",
-        "horario_inicio": "18:00",
-        "horario_fim": "18:10",
-        "meio_de_pagamento": "espe",
-        "tel_celular": "83998335658",
-        "procedimentos_ids": [12, 13],
-        "observacoes": "Loren ipsum dollor."
-      }'
-```
-
-3. Atualizar Agendamento (PUT)
-
-Rota: /agenda/{id}
-
-Método: PUT
-
-Parâmetros:
-
-Id do agendamento a ser atualizado.
-
-Os parâmetros podem ser os mesmos do POST, mas apenas os que precisam ser alterados.
-
-Exemplo:
-
-```bash
-curl -X PUT "http://localhost:5000/agenda/43033" \
-  -H "Content-Type: application/json" \
-  -d '{
-        "momento": "2025-08-12",
-        "horario_inicio": "18:00",
-        "horario_fim": "18:10",
-        "observacoes": "ajuste de horario"
-      }'
-```
-
-4. Consultar Agendamento por ID (GET)
-
-Rota: /agenda/{id}
-
-Método: GET
-
-Parâmetros: id (ID do agendamento).
-
-Exemplo:
-
-```bash
-curl "http://localhost:5000/agenda/43033"
-```
+## 4. Consultar Agendamento por ID (GET)
 
 ## 🛠️ Estrutura de Arquivos
 ```bash
@@ -172,29 +74,3 @@ Requests: Biblioteca para fazer chamadas HTTP.
 python-dotenv: Para carregar variáveis de ambiente do arquivo .env.
 
 json: Para manipulação de JSON.
-
-## 📝 Contribuindo
-
-Clone o repositório.
-
-Crie uma branch para sua feature:
-
-git checkout -b minha-feature
-
-
-Faça suas alterações e commit:
-
-git commit -am 'Adiciona nova feature'
-
-
-Push para sua branch:
-
-git push origin minha-feature
-
-
-Abra um pull request.
-
-## 📜 Licença
-
-Distribuído sob a licença MIT. Veja o arquivo LICENSE
- para mais informações.
